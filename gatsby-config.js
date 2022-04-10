@@ -54,13 +54,6 @@ module.exports = {
         sitemap: 'https://www.hawjeh.com/sitemap/sitemap-index.xml',
         policy: [{ userAgent: '*', allow: '/' }],
       },
-    },
-    {
-      resolve: `gatsby-plugin-google-gtag`,
-      trackingIds: ["G-Q071PHWZBD"],
-      pluginConfig: {
-        head: true,
-      }
     }
   ]
 };
