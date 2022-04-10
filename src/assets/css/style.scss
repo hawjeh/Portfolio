@@ -1,0 +1,244 @@
+$primary: #442d7c;
+$secondary: #232323;
+$grey: #939393;
+
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "grey": $grey,
+);
+
+@import "bootstrap";
+@import url("./animation.scss");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;500;600;700&display=swap");
+
+html,
+body {
+  font-family: "Raleway", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+section {
+  padding-top: 45px;
+  padding-bottom: 45px;
+}
+
+.text-bold {
+  font-weight: bold;
+  &-100 {
+    font-weight: 100;
+  }
+  &-200 {
+    font-weight: 200;
+  }
+  &-300 {
+    font-weight: 300;
+  }
+  &-400 {
+    font-weight: 400;
+  }
+  &-500 {
+    font-weight: 500;
+  }
+  &-600 {
+    font-weight: 600;
+  }
+  &-700 {
+    font-weight: 700;
+  }
+}
+
+.text-footer {
+  font-size: 0.8rem;
+}
+
+.social-icon {
+  color: $primary;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.banner-hello {
+  position: relative !important;
+  background-size: contain !important;
+  background-position: 0% 0px;
+  background-repeat: no-repeat;
+  padding-top: 0 !important;
+  overflow: hidden;
+  background-attachment: fixed !important;
+  transition-duration: 0s;
+}
+
+#banner {
+  h1 {
+    font-size: 2rem;
+  }
+  .Typewriter {
+    font-size: 0.8rem;
+    padding-top: 0.5rem;
+  }
+  .row {
+    margin: 20px;
+    margin-bottom: 0 !important;
+  }
+}
+
+#service {
+  .card {
+    border-radius: 0.5rem;
+    border: 1px solid rgba($primary, 0.3);
+  }
+}
+
+#experience,
+#education {
+  font-size: 0.9rem;
+  .dot {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 9999px;
+    position: absolute;
+    margin-left: -1.1rem;
+    margin-top: 2.4rem;
+    background-color: rgba($primary, 0.5);
+  }
+  .row {
+    border-left: 1px solid rgba($primary, 0.5);
+    padding-top: 2rem;
+  }
+  .date {
+    border: 1px solid $primary;
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+  }
+  .title {
+    padding-top: 1rem;
+  }
+  .description {
+    p {
+      margin-bottom: 0 !important;
+    }
+  }
+}
+
+#certification {
+  a {
+    text-decoration: none !important;
+  }
+}
+
+#tool {
+  p {
+    margin-bottom: 0 !important;
+  }
+  .progress-bar {
+    background-color: rgba($primary, 0.5);
+    cursor: pointer;
+    &:hover {
+      background-color: $primary;
+    }
+  }
+}
+
+#project {
+  .card {
+    height: 200px;
+    img {
+      height: 160px;
+    }
+    a {
+      text-decoration: none !important;
+      margin-top: 5px;
+    }
+  }
+}
+
+#blog {
+  .blog-post {
+    border: 1px solid rgba($primary, 0.5);
+    transition: transform 330ms ease-in-out;
+    height: 450px;
+    text-decoration: none !important;
+    &:hover {
+      transform: scale(1.05) translateZ(0);
+      border-color: $primary;
+    }
+    img {
+      height: 280px;
+    }
+    h4 {
+      padding: 0.5rem;
+    }
+  }
+}
+
+#blog-template {
+  max-width: 980px;
+}
+
+pre {
+  background-color: #d3d3d3;
+  padding: 1rem;
+  border-radius: 1rem;
+  color: $secondary;
+}
+
+@media (min-width: 576px) {
+}
+
+@media (min-width: 768px) {
+  #banner {
+    h1 {
+      font-size: 3.5rem;
+    }
+    .Typewriter {
+      font-size: 0.9rem;
+    }
+    .row {
+      margin: 80px;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  #banner {
+    h1 {
+      font-size: 4.5rem;
+    }
+    .Typewriter {
+      font-size: 1rem;
+    }
+    .row {
+      margin: 100px;
+    }
+  }
+  #service {
+    .service-card-row {
+      margin-left: 5rem;
+      margin-right: 5rem;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  #banner {
+    h1 {
+      font-size: 6rem;
+    }
+    .Typewriter {
+      font-size: 1.1rem;
+    }
+    .row {
+      margin: 120px;
+    }
+  }
+  #service {
+    .service-card-row {
+      margin-left: 10rem;
+      margin-right: 10rem;
+    }
+  }
+}
