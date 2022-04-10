@@ -3,7 +3,7 @@ module.exports = {
     title: `Haw Jeh`,
     siteUrl: `https://www.hawjeh.com`,
     description: 'Haw Jeh portfolio and blogging site',
-    keywords: 'Haw Jeh, Portfolio, Software Developer, Software Engineer, System Thinker, Efficient, Creative, Fun, Coding, Keep Coding, Keep Fighting, Integration'
+    keywords: 'Haw Jeh, Portfolio, Software Developer, Resume, CV, Software Engineer, System Thinker, Efficient, Creative, Fun, Coding, Keep Coding, Keep Fighting, Integration'
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
