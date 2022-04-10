@@ -56,11 +56,11 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: "gatsby-plugin-google-tagmanager",
       options: {
-        trackingId: "G-Q071PHWZBD",
-        head: true
+        id: "G-Q071PHWZBD",
+        defaultDataLayer: { platform: "gatsby" }
       },
-    }
+    },
   ]
 };
