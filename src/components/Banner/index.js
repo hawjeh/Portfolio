@@ -35,6 +35,7 @@ const Banner = () => {
             <img
               src={portrait.childImageSharp.fluid.src}
               alt="portrait"
+              style={{ height: '218px', width: '218px'}}
               className="rounded-circle border border-1 border-primary p-2 img-fluid" />
           </div>
           <div className="col-12 col-md-9 mb-3 d-flex flex-column align-items-center justify-content-center animate__bounceInRight">

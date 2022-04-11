@@ -10,9 +10,9 @@ const ServiceCard = ({ card }) => {
           <div>
             <FontAwesomeIcon icon={icon} className="rounded-circle border border-1 border-grey p-2" />
           </div>
-          <h5 className="text-bold-500 my-3">
+          <h3 className="text-bold-500 my-3">
             {title}
-          </h5>
+          </h3>
           <p>
             {description}
           </p>

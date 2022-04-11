@@ -13,19 +13,19 @@ const Footer = () => {
             <span className="text-primary text-bold">Haw Jeh</span> © {currentYear} All right reseved
           </h4>
           <p>
-            <Link to="https://www.linkedin.com/in/hawjeh/" target='_blank' rel="noopener noreferrer">
+            <Link to="https://www.linkedin.com/in/hawjeh/" target='_blank' rel="noopener noreferrer" aria-label="Haw Jeh Linkedin">
               <FontAwesomeIcon className="social-icon" icon="fab fa-linkedin" />
             </Link>
-            <Link to="https://github.com/hawjeh" target='_blank' rel="noopener noreferrer">
+            <Link to="https://github.com/hawjeh" target='_blank' rel="noopener noreferrer" aria-label="Haw Jeh Github">
               <FontAwesomeIcon className="social-icon" icon="fab fa-github-square" />
             </Link>
-            <Link to="https://www.facebook.com/hawjeh" target='_blank' rel="noopener noreferrer">
+            <Link to="https://www.facebook.com/hawjeh" target='_blank' rel="noopener noreferrer" aria-label="Haw Jeh Facebook">
               <FontAwesomeIcon className="social-icon" icon="fab fa-facebook-square" />
             </Link>
-            <Link to="https://twitter.com/hawjeh" target='_blank' rel="noopener noreferrer">
+            <Link to="https://twitter.com/hawjeh" target='_blank' rel="noopener noreferrer" aria-label="Haw Jeh Twitter">
               <FontAwesomeIcon className="social-icon" icon="fab fa-twitter-square" />
             </Link>
-            <Link to="https://www.instagram.com/hawjeh/" target='_blank' rel="noopener noreferrer">
+            <Link to="https://www.instagram.com/hawjeh/" target='_blank' rel="noopener noreferrer" aria-label="Haw Jeh Instagram">
               <FontAwesomeIcon className="social-icon" icon="fab fa-instagram-square" />
             </Link>
           </p>
