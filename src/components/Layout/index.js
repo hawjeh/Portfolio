@@ -1,4 +1,5 @@
 import React from "react"
+import useGtagScript from "../../hooks/useGtagScript";
 import Footer from '../Footer'
 import Seo from "../Seo"
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -12,6 +13,8 @@ library.add(fas, faTwitterSquare, faFontAwesome)
 library.add(fas, faInstagramSquare, faFontAwesome)
 
 const Layout = ({ title = "", children }) => {
+  useGtagScript('G-Q071PHWZBD');
+
   return (
     <>
       <Seo title={title} />
