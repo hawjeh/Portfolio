@@ -53,7 +53,7 @@ const Blog = () => {
             <p className="text-secondary text-uppercase">Gain Knowledge by Sharing</p>
           </div>
           <div className="col-12 col-md-6">
-            <select class="form-select form-select-lg mb-3" aria-label="Filter" onChange={(e) => onSelectChange(e)}>
+            <select className="form-select form-select-lg mb-3" aria-label="Filter" onChange={(e) => onSelectChange(e)}>
               <option value="">Select a filter</option>
               {
                 filters.sort().map(item => {
