@@ -3,11 +3,11 @@ import Header from "../components/Header"
 import Resume from "../components/Resume"
 import Layout from '../components/Layout'
 
-const ResumePage = () => {
+const ResumePage = ({ location }) => {
   return (
     <Layout title="Resume">
       <Header showHome={true} />
-      <Resume />
+      <Resume location={location} />
     </Layout>
   )
 }

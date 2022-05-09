@@ -1,4 +1,5 @@
-import React, { useEffect } from "react"
+import React from "react"
+import AddThis from '../AddThis'
 import Header from "../Header"
 import Layout from "../Layout"
 import Seo from "../Seo"
@@ -10,20 +11,11 @@ import { graphql, Link } from "gatsby"
 const BlogTemplate = ({ location, data }) => {
   const shortcodes = { Link }
 
-  const { title, keyword, description, date } = data.mdx.frontmatter;
-  const addThisUrl = '//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-6278824242b801b4';
-
-  useEffect(() => {
-    setTimeout(() => {
-      var addthisScript = document.createElement('script');
-      addthisScript.setAttribute('src', addThisUrl);
-      if (document.body) document.body.appendChild(addthisScript)
-    });
-  }, []);
-
+  const { title, keyword, description, date, image } = data.mdx.frontmatter;
+  
   return (
     <Layout title={title}>
-      <Seo title={title} description={description} keywords={keyword} />
+      <Seo title={title} description={description} keywords={keyword} image={location.origin + image.childImageSharp.fluid.src} />
       <Header showHome={true} />
       <div id="blog-template" className="container my-5">
         <p className="date">{date}</p>
@@ -33,7 +25,7 @@ const BlogTemplate = ({ location, data }) => {
             <MDXRenderer frontmatter={data.mdx.frontmatter}>{data.mdx.body}</MDXRenderer>
           </MDXProvider>
         </div>
-        <div className="addthis_inline_share_toolbox share mt-5" data-url={location.href} data-title={title}></div>
+        <AddThis href={location.href} title={title} />
       </div>
     </Layout>
   )
@@ -51,6 +43,13 @@ export const pageQuery = graphql`
         keyword
         description
         date
+        image {
+          childImageSharp {
+            fluid(maxWidth: 320) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }
