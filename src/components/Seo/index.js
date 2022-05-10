@@ -23,7 +23,7 @@ const Seo = ({ description, keywords, lang, meta, title, image }) => {
         }
         metaIcon: file(relativePath: { eq: "icon.png" }) {
           childImageSharp {
-            fluid(maxWidth: 800) {
+            fluid(maxHeight: 630,maxWidth: 1200) {
               ...GatsbyImageSharpFluid
             }
           }
