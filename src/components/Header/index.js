@@ -27,6 +27,12 @@ const Header = ({ showHome }) => {
             <li className="nav-item">
               <a className="nav-link text-primary" aria-label="Blog" href='/blog'>Blog</a>
             </li>
+            <li className='nav-item'>
+              <span className='nav-link'>|</span>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link text-primary" aria-label="Sitemap" href='/sitemap'>Sitemap</a>
+            </li>
           </ul>
         </div>
       </nav>
