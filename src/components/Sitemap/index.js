@@ -7,7 +7,7 @@ const Sitemap = () => {
       query {
         pages: allSitePage(
           sort: {fields: path}
-          filter: {path: {nin: ["/404.html", "/404/", "/dev-404-page/", "/sitemap/", "/auth/"]}}
+          filter: {path: {nin: ["/404.html", "/404/", "/dev-404-page/", "/sitemap/", "/auth/", "/sitefinity-certification-v14/", "/search/"]}}
         ) {
           nodes {
             path
@@ -37,6 +37,8 @@ const Sitemap = () => {
       name = 'js to excel';
     } else if (path === '/resume/') {
       name = "resume";
+    } else if (path === '/search/') {
+      name = "search";
     } else {
       name = path.replace("/blog/", "").replaceAll("/", "").replaceAll("-", " ");
     }
@@ -45,7 +47,7 @@ const Sitemap = () => {
   }
 
   const getClassName = (path) => {
-    if (path === '/' || path === '/blog/' || path === '/js-to-excel/' || path === '/resume/') {
+    if (path === '/' || path === '/blog/' || path === '/js-to-excel/' || path === '/resume/' || path === '/search/') {
       return '';
     } else {
       return 'ps-3';

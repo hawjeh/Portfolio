@@ -1,7 +1,9 @@
+const siteUrl = process.env.URL || `https://www.hawjeh.com`
+
 module.exports = {
   siteMetadata: {
     title: `Haw Jeh`,
-    siteUrl: `https://www.hawjeh.com`,
+    siteUrl: siteUrl,
     description: 'Haw Jeh portfolio and blogging site',
     keywords: 'Haw Jeh, Portfolio, Software Developer, Resume, CV, Software Engineer, System Thinker, Efficient, Creative, Fun, Coding, Keep Coding, Keep Fighting, Integration'
   },
@@ -10,8 +12,36 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sitemap`,
     `gatsby-remark-images`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        query: `
+        {
+          allSitePage(
+            sort: {fields: path}
+            filter: {path: {nin: ["/404.html", "/404/", "/dev-404-page/", "/sitemap/", "/auth/", "/sitefinity-certification-v14/", "/search/"]}}
+          ) {
+            nodes {
+              path
+            }
+          }
+        }
+      `,
+        resolveSiteUrl: () => siteUrl,
+        resolvePages: ({
+          allSitePage: { nodes: allPages },
+        }) => {
+          return allPages
+        },
+        serialize: ({ path, modifiedGmt }) => {
+          return {
+            url: path,
+            lastmod: modifiedGmt,
+          }
+        },
+      }
+    },
     {
       resolve: `gatsby-plugin-sass`,
       options: {
