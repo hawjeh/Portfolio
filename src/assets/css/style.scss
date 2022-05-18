@@ -24,6 +24,13 @@ section {
   padding-bottom: 45px;
 }
 
+#resume_page {
+  section {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
 .text-bold {
   font-weight: bold;
   &-100 {
@@ -139,9 +146,26 @@ h1,
   }
 }
 
-#certification {
+#certification,
+#mini-project {
   a {
     text-decoration: none !important;
+  }
+}
+
+#mini-project {
+  p {
+    padding-left: 1rem;
+  }
+  p::before {
+    content: "";
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 9999px;
+    position: absolute;
+    margin-left: -1.1rem;
+    margin-top: 0.25rem;
+    background-color: rgba(68, 45, 124, 0.5);
   }
 }
 
@@ -269,6 +293,7 @@ pre {
 
 @media print {
   #resume_page {
+    padding: 1rem;
     .printpagebreak {
       padding: 1rem;
       page-break-before: always;
