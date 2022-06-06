@@ -35,14 +35,15 @@ published: true
 |Response type|id_token|
 |Allowed scopes|openid profile email|
 |Authority|https://login.microsoftonline.com/<[Azure AD App Directory (tenant) ID]>/v2.0|
-|Metadata address|https://login.microsoftonline.com//v2.0/.well-known/openid-configuration|
-|Redirect URI|http://<[Sitefinity instance]>/Sitefinity/Authenticate/OpenID/signin-custom|
-|Post logout redirect URI|http://<[Sitefinity instance]>|
+|Metadata address|https://login.microsoftonline.com/<[Azure AD App Directory (tenant) ID]>/v2.0/.well-known/openid-configuration|
+|Redirect URI|https://<[Sitefinity instance]>/Sitefinity/Authenticate/OpenID/signin-custom|
+|Post logout redirect URI|https://<[Sitefinity instance]>|
 |Title|Azure AD Login|
 |Enabled|True|
 |Auto assigned roles|Administrators|
 |Require email claim from this provider|False|
 
+<br/><br/>
 
 4. Restart Sitefinity
 
