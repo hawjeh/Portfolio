@@ -14,7 +14,7 @@ const ResumePage = ({ location }) => {
   }, [location]);
 
   return (
-    <Layout title="Blog">
+    <Layout title="Auth">
       <Header showHome={true} />
       <SpAuth callback={callbackValue} />
     </Layout>

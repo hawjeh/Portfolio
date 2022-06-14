@@ -1,5 +1,4 @@
 import React from "react"
-
 import { Link } from 'gatsby'
 
 const BlogPost = ({ slug, title, src, date, keyword }) => {
