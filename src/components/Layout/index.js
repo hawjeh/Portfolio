@@ -1,5 +1,7 @@
 import React from "react"
-import useGtagScript from "../../hooks/useGtagScript";
+import useFbSdkScript from '../../hooks/useFbSdkScript';
+import useGtagScript from '../../hooks/useGtagScript';
+import useSchemaScript from '../../hooks/useSchemaScript';
 import Footer from '../Footer'
 import Seo from "../Seo"
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -14,6 +16,8 @@ library.add(fas, faInstagramSquare, faFontAwesome)
 
 const Layout = ({ title = "", children }) => {
   useGtagScript('G-Q071PHWZBD');
+  useFbSdkScript('901448237938064');
+  useSchemaScript();
 
   return (
     <>
