@@ -1,7 +1,7 @@
 import React from "react"
-import { useStaticQuery, graphql, Link } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 
-const ResumeProfile = ({ onPrintClick }) => {
+const ResumeProfile = () => {
   const { profile } = useStaticQuery(
     graphql`
       query {
@@ -34,8 +34,9 @@ const ResumeProfile = ({ onPrintClick }) => {
         <p>
           <a href="mailto:hawjeh.com?subject=Hello%20Nice%20to%20meet%20you">hawjeh@gmail.com</a>
         </p>
-        <button className="btn btn-primary btn-print" onClick={() => onPrintClick()}>Print resume</button>
-        <span className="printshow">Printed from <Link to="https://www.hawjeh.com/resume/" target="_blank" rel="noopener noreferrer">hawjeh.com/resume</Link></span>
+        <p>
+          <a href="https://drive.google.com/file/d/1SIyBPdEx5NQhaDc4lBLyATE2VkcSM2Gt/view?usp=sharing" className="btn btn-primary" target="_blank" rel="noopener noreferrer">Download Here</a>
+        </p>
       </div>
     </div>
   )

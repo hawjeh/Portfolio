@@ -1,5 +1,4 @@
-import React, { useRef } from "react"
-import { useReactToPrint } from 'react-to-print'
+import React from "react"
 import AddThis from '../AddThis'
 import Certification from '../Certification'
 import Education from '../Education'
@@ -11,17 +10,12 @@ import ResumeProfile from './profile'
 import Tool from '../Tool'
 
 const Resume = ({ location }) => {
-  const componentRef = useRef();
-  const onPrintClick = useReactToPrint({
-    content: () => componentRef.current,
-  });
-
   return (
     <>
-      <div id="resume_page" className="container" ref={componentRef}>
+      <div id="resume_page" className="container">
         <div className="row">
           <div className="col-12 col-lg-3 text-left text-lg-center animate__bounceInLeft">
-            <ResumeProfile onPrintClick={onPrintClick} />
+            <ResumeProfile />
           </div>
           <div className="col-12 col-lg-9 animate__fadeIn">
             <Experience />
