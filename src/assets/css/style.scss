@@ -1,16 +1,20 @@
 $primary: #442d7c;
 $secondary: #232323;
 $grey: #939393;
+$dark: #343a40;
 
 $theme-colors: (
   "primary": $primary,
   "secondary": $secondary,
   "grey": $grey,
+  "dark": $dark,
 );
 
 @import "bootstrap";
 @import url("./animation.scss");
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Oswald");
+@import url("https://fonts.googleapis.com/css?family=Pacifico");
 
 html,
 body {
@@ -325,6 +329,140 @@ pre {
     p,
     .p {
       margin-bottom: 0.3rem !important;
+    }
+  }
+}
+
+#wedding-wrapper {
+  font-family: "Oswald", sans-serif;
+  background-image: url(/wedding/bg.png);
+  height: 100vh;
+  color: white;
+
+  #footer-content {
+    animation: pulse 0.8s ease-in-out;
+  }
+
+  #rvsp-content {
+    animation: fadeIn 1.8s;
+  }
+  
+  @keyframes pulse {
+    from {
+      transform: translateY(-8em);
+      opacity: 0.3;
+    }
+
+    to {
+      transform: translateY(0em);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0.3;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  .cover-container {
+    max-width: 42em;
+  }
+
+  .save-the-date {
+    font-family: "Pacifico", cursive;
+    transform: rotate(-10deg);
+    margin-bottom: 20px;
+  }
+
+  #save {
+    font-size: 4rem;
+    line-height: 50px;
+  }
+
+  #the-date {
+    font-size: 3.5rem;
+    line-height: 60px;
+  }
+
+  .hearts {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .red-heart {
+    color: #f0394d;
+    position: relative;
+    z-index: 3;
+  }
+
+  .white-heart {
+    color: white;
+    margin-left: -10px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .red-dot {
+    color: #f0394d;
+  }
+
+  .dash {
+    width: 30px;
+    height: 6px;
+    display: inline-block;
+    border-top: solid 1px white;
+  }
+
+  .btn-rvsp:hover {
+    background-color: #f0394d !important;
+    border-color: #f0394d !important;
+  }
+
+  .modal {
+    &.show {
+      animation: modalFadeIn 0.8s ease-in-out;
+      display: block !important;
+    }
+  }
+
+  @keyframes modalFadeIn {
+    from {
+      transform: translateY(-8em);
+      opacity: 0.3;
+    }
+
+    to {
+      transform: translateY(0em);
+      opacity: 1;
+    }
+  }
+
+  @media (min-width: 375px) {
+    .getting-married {
+      width: 78%;
+    }
+  }
+
+  @media (min-width: 425px) {
+    .getting-married {
+      width: 68%;
+    }
+  }
+
+  @media (min-width: 468px) {
+    .getting-married {
+      width: 58%;
+    }
+  }
+
+  @media (min-width: 520px) {
+    .getting-married {
+      width: 48%;
     }
   }
 }
