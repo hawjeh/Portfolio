@@ -3,8 +3,8 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-const Seo = ({ description, keywords, lang, meta, title, image }) => {
-  const { site, icon, metaIcon } = useStaticQuery(
+const Seo = ({ description, keywords, lang, meta, title, image, customIcon }) => {
+  const { site, icon, metaImg } = useStaticQuery(
     graphql`
       query {
         site {
@@ -21,7 +21,7 @@ const Seo = ({ description, keywords, lang, meta, title, image }) => {
             }
           }
         }
-        metaIcon: file(relativePath: { eq: "icon.png" }) {
+        metaImg: file(relativePath: { eq: "icon.png" }) {
           childImageSharp {
             fluid(maxHeight: 630,maxWidth: 1200) {
               ...GatsbyImageSharpFluid
@@ -35,7 +35,8 @@ const Seo = ({ description, keywords, lang, meta, title, image }) => {
   const metaDescription = description || site.siteMetadata.description
   const metaKeywords = keywords ? `${keywords}, site.siteMetadata.keywords` : site.siteMetadata.keywords
   const metaTitle = title ? `${title} | Haw Jeh` : site.siteMetadata?.title
-  const metaImage = image || metaIcon.childImageSharp.fluid.src
+  const metaImage = image || metaImg.childImageSharp.fluid.src
+  const metaIcon = customIcon || icon.childImageSharp.fluid.src
 
   return (
     <Helmet
@@ -90,7 +91,7 @@ const Seo = ({ description, keywords, lang, meta, title, image }) => {
         },
       ].concat(meta)}
     >
-      <link rel="icon" type="image/png" href={icon.childImageSharp.fluid.src} />
+      <link rel="icon" type="image/png" href={metaIcon} />
     </Helmet>
   )
 }

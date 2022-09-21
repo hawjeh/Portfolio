@@ -5,7 +5,12 @@ import Wedding from "../components/Wedding"
 
 const WeddingPage = () => {
   return (
-    <WeddingLayout title="#HJxMY Wedding">
+    <WeddingLayout
+      title="#HJxMY Wedding"
+      description="Haw Jeh and Meng Yan Wedding"
+      keywords="hawjeh, haw jeh, mengyan, meng yan, wedding"
+      image="/wedding/hjxmy1.jpg"
+      icon="/wedding/wedding_favicon.ico">
       <Wedding />
       <Helmet>
         <script src="/wedding/wedding.js"></script>
