@@ -4,10 +4,13 @@ import useGtagScript from '../../hooks/useGtagScript';
 import useSchemaScript from '../../hooks/useSchemaScript';
 import Seo from "../Seo"
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faHeart, faPaw, fas } from '@fortawesome/free-solid-svg-icons'
+import { faHeart, faPaw, faCalendar, fas } from '@fortawesome/free-solid-svg-icons'
+import { faWaze, faFontAwesome } from '@fortawesome/free-brands-svg-icons'
 
 library.add(fas, faPaw)
 library.add(fas, faHeart)
+library.add(fas, faCalendar)
+library.add(fas, faWaze, faFontAwesome)
 
 const WeddingLayout = ({ title = "", description = "", keywords = "", image = "", icon = "", children }) => {
   useGtagScript('G-Q071PHWZBD');

@@ -33,7 +33,7 @@ const Seo = ({ description, keywords, lang, meta, title, image, customIcon }) =>
   )
 
   const metaDescription = description || site.siteMetadata.description
-  const metaKeywords = keywords ? `${keywords}, site.siteMetadata.keywords` : site.siteMetadata.keywords
+  const metaKeywords = keywords ? `${keywords}, ${site.siteMetadata.keywords}` : site.siteMetadata.keywords
   const metaTitle = title ? `${title} | Haw Jeh` : site.siteMetadata?.title
   const metaImage = image || metaImg.childImageSharp.fluid.src
   const metaIcon = customIcon || icon.childImageSharp.fluid.src

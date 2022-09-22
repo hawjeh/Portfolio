@@ -8,7 +8,7 @@ const WeddingPage = () => {
     <WeddingLayout
       title="#HJxMY Wedding"
       description="Haw Jeh and Meng Yan Wedding"
-      keywords="hawjeh, haw jeh, mengyan, meng yan, wedding"
+      keywords="hawjeh, haw jeh, mengyan, meng yan, wedding, hawjeh and mengyan wedding, #hjxmy wedding, haw jeh and meng yan wedding"
       image="/wedding/hjxmy1.jpg"
       icon="/wedding/wedding_favicon.ico">
       <Wedding />

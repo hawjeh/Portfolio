@@ -18,5 +18,6 @@ setTimeout(function () {
   document.getElementById("preloader").className = "d-none";
   document.getElementById("footer-content").className = "";
   document.getElementById("rvsp-content").className = "";
+  document.getElementById("cal-add-content").className = "";
   document.getElementById("wedding-wrapper").style.background = "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.06)), url(/wedding/hjxmy1.jpg) center/cover no-repeat";
 }, 2000);

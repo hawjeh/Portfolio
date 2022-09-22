@@ -2,12 +2,15 @@ $primary: #442d7c;
 $secondary: #232323;
 $grey: #939393;
 $dark: #343a40;
+$red: #f0394d;
+$gold: #ffd700;
 
 $theme-colors: (
   "primary": $primary,
   "secondary": $secondary,
   "grey": $grey,
   "dark": $dark,
+  "danger": $red,
 );
 
 @import "bootstrap";
@@ -15,6 +18,7 @@ $theme-colors: (
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Oswald");
 @import url("https://fonts.googleapis.com/css?family=Pacifico");
+@import url("https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap");
 
 html,
 body {
@@ -343,10 +347,11 @@ pre {
     animation: pulse 0.8s ease-in-out;
   }
 
-  #rvsp-content {
+  #rvsp-content,
+  #cal-add-content {
     animation: fadeIn 1.8s;
   }
-  
+
   @keyframes pulse {
     from {
       transform: translateY(-8em);
@@ -395,7 +400,7 @@ pre {
   }
 
   .red-heart {
-    color: #f0394d;
+    color: $red;
     position: relative;
     z-index: 3;
   }
@@ -408,7 +413,7 @@ pre {
   }
 
   .red-dot {
-    color: #f0394d;
+    color: $red;
   }
 
   .dash {
@@ -419,14 +424,48 @@ pre {
   }
 
   .btn-rvsp:hover {
-    background-color: #f0394d !important;
-    border-color: #f0394d !important;
+    background-color: $red !important;
+    border-color: $red !important;
   }
 
   .modal {
     &.show {
       animation: modalFadeIn 0.8s ease-in-out;
       display: block !important;
+      backdrop-filter: blur(5px);
+    }
+  }
+
+  .invitation-card-wrapper {
+    background-color: $red;
+    padding: 1rem 0.5rem;
+    color: $gold;
+    .invitation-card {
+      border: 1px solid $gold;
+      padding: 0.5rem;
+
+      &.zh {
+        font-family: "ZCOOL KuaiLe", cursive;
+      }
+      &.en {
+        font-family: "Pacifico", cursive;
+      }
+
+      .wedding-text {
+        font-size: 2rem;
+      }
+
+      .wedding-invite {
+        font-size: 1.3rem;
+        line-height: 0.8;
+        &.small {
+          font-size: 1rem;
+        }
+      }
+
+      hr {
+        margin: 1rem;
+      }
     }
   }
 
