@@ -2,7 +2,7 @@ import React, { useState, useCallback, useRef } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Typewriter from 'typewriter-effect';
 import WeddingModal from "./modal";
-import { toPng } from 'html-to-image';
+import domtoimage from 'dom-to-image';
 
 const Wedding = () => {
 
@@ -68,20 +68,18 @@ const Wedding = () => {
     }
 
     setDownloading(true);
-    setTimeout(() => {
-      toPng(ref.current, { cacheBust: true, })
-        .then((dataUrl) => {
-          const link = document.createElement('a');
-          link.download = 'hjxmy_invitation.png';
-          link.href = dataUrl;
-          link.click();
-          setDownloading(false);
-        })
-        .catch((err) => {
-          console.log(err)
-        })
-    }, 1000);
-  }, [ref])
+    domtoimage.toPng(ref.current)
+      .then(function (dataUrl) {
+        const link = document.createElement('a');
+        link.download = 'hjxmy_invitation.png';
+        link.href = dataUrl;
+        link.click();
+        setDownloading(false);
+      })
+      .catch(function (error) {
+        console.error('oops, something went wrong!', error);
+      });
+  }, [ref]);
 
   const onCardCloseClick = (e) => {
     setCardModalClass('modal fade');
