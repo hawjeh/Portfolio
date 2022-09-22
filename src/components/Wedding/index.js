@@ -2,7 +2,7 @@ import React, { useState, useCallback, useRef } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Typewriter from 'typewriter-effect';
 import WeddingModal from "./modal";
-import domtoimage from 'dom-to-image';
+import html2canvas from 'html2canvas';
 
 const Wedding = () => {
 
@@ -68,17 +68,21 @@ const Wedding = () => {
     }
 
     setDownloading(true);
-    domtoimage.toPng(ref.current)
-      .then(function (dataUrl) {
+    html2canvas(ref.current)
+      .then((canvas) => {
+        canvas.style.display = 'none';
+        document.body.appendChild(canvas);
+        return canvas;
+      })
+      .then((canvas) => {
+        const image = canvas.toDataURL('image/png').replace('image/png', 'image/octet-stream')
         const link = document.createElement('a');
         link.download = 'hjxmy_invitation.png';
-        link.href = dataUrl;
+        link.href = image;
         link.click();
+        canvas.remove();
         setDownloading(false);
       })
-      .catch(function (error) {
-        console.error('oops, something went wrong!', error);
-      });
   }, [ref]);
 
   const onCardCloseClick = (e) => {
