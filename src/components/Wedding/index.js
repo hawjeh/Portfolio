@@ -2,7 +2,6 @@ import React, { useState, useCallback, useRef } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Typewriter from 'typewriter-effect';
 import WeddingModal from "./modal";
-// import * as htmlToImage from 'html-to-image';
 import { toPng } from 'html-to-image';
 
 const Wedding = () => {
@@ -13,6 +12,7 @@ const Wedding = () => {
   const [whatsApp, setWhatsApp] = useState("");
   const [message, setMessage] = useState("");
   const [cardLanguage, setCardLanguage] = useState(true);
+  const [downloading, setDownloading] = useState(false);
 
   const [modalClass, setModalClass] = useState('modal fade');
   const [cardModalClass, setCardModalClass] = useState('modal fade');
@@ -57,22 +57,30 @@ const Wedding = () => {
     setMessage("");
   }
 
+  const onInviteCardClick = (e) => {
+    setCardModalClass('modal show');
+  }
+
   const ref = useRef();
   const onCardSaveClick = useCallback(() => {
     if (ref.current === null) {
       return
     }
 
-    toPng(ref.current, { cacheBust: true, })
-      .then((dataUrl) => {
-        const link = document.createElement('a')
-        link.download = 'hjxmy_invitation.png'
-        link.href = dataUrl
-        link.click()
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+    setDownloading(true);
+    setTimeout(() => {
+      toPng(ref.current, { cacheBust: true, })
+        .then((dataUrl) => {
+          const link = document.createElement('a');
+          link.download = 'hjxmy_invitation.png';
+          link.href = dataUrl;
+          link.click();
+          setDownloading(false);
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    }, 1000);
   }, [ref])
 
   const onCardCloseClick = (e) => {
@@ -152,6 +160,10 @@ const Wedding = () => {
           </button>
         </div>
         <div id="cal-add-content" className="d-none">
+          <button className="btn btn-lg btn-dark btn-rvsp mt-3 me-3" onClick={() => onInviteCardClick()}>
+            <FontAwesomeIcon icon="fas fa-file-export" className="me-1" />
+            Invitation Card
+          </button>
           <button className="btn btn-lg btn-dark btn-rvsp mt-3 me-3" onClick={() => onWazeClick()}>
             <FontAwesomeIcon icon="fab fa-waze" className="me-1" />
             Waze
@@ -209,6 +221,7 @@ const Wedding = () => {
         <button className="btn btn-dark btn-rvsp" onClick={() => { onCardLanguageToggle() }}>{cardLanguage ? "English" : "中文"}</button>
         <br />
         <span className="text-danger">- We will contact you shortly.-</span>
+        {downloading && <><br /><span className="text-danger">Downloading...</span></>}
       </WeddingModal>
       <WeddingModal modalClass={wazeModalClass} onCloseClick={onWazeCloseClick}>
         <h1>- Location to be confirm -</h1>
