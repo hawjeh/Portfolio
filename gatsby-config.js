@@ -82,7 +82,7 @@ module.exports = {
       options: {
         host: 'https://www.hawjeh.com',
         sitemap: 'https://www.hawjeh.com/sitemap/sitemap-index.xml',
-        policy: [{ userAgent: '*', allow: '/' }],
+        policy: [{ userAgent: '*', disallow: '' }],
       },
     }
   ]

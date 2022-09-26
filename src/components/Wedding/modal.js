@@ -10,9 +10,9 @@ const WeddingModal = ({ modalClass, onCloseClick, saveText = "Save", onSaveClick
           </div>
           <div className="modal-footer border-top-0 justify-content-center">
             {
-              showSave && <button type="button" className="btn btn-dark btn-rvsp" onClick={onSaveClick}>{saveText}</button>
+              showSave && <button type="button" className="btn btn-dark btn-rsvp" onClick={onSaveClick}>{saveText}</button>
             }
-            <button type="button" className="btn btn-secondary btn-rvsp" data-bs-dismiss="modal" onClick={onCloseClick}>Close</button>
+            <button type="button" className="btn btn-secondary btn-rsvp" data-bs-dismiss="modal" onClick={onCloseClick}>Close</button>
           </div>
         </div>
       </div>

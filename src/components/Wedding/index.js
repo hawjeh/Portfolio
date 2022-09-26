@@ -18,11 +18,11 @@ const Wedding = () => {
   const [cardModalClass, setCardModalClass] = useState('modal fade');
   const [wazeModalClass, setWazeModalClass] = useState('modal fade');
 
-  const onRvspClick = () => {
+  const onRsvpClick = () => {
     setModalClass('modal show');
   }
 
-  const onRvspSaveClick = (e) => {
+  const onRsvpSaveClick = (e) => {
     if (name !== '' && noOfPax > 0 && email !== '') {
       setMessage("");
       const requestOptions = {
@@ -48,7 +48,7 @@ const Wedding = () => {
     }
   }
 
-  const onRvspCloseClick = (e) => {
+  const onRsvpCloseClick = (e) => {
     setModalClass('modal fade');
     setName("");
     setNoOfPax("1");
@@ -155,32 +155,32 @@ const Wedding = () => {
             <span className="dash"></span>
           </div>
         </div>
-        <div id="rvsp-content" className="d-none">
-          <button className="btn btn-lg btn-dark btn-rvsp" onClick={() => onRvspClick()}>
+        <div id="rsvp-content" className="d-none">
+          <button className="btn btn-lg btn-dark btn-rsvp" onClick={() => onRsvpClick()}>
             <FontAwesomeIcon icon="fas fa-paw" className="me-1" />
-            RVSP
+            RSVP
           </button>
         </div>
         <div id="cal-add-content" className="d-none">
-          <button className="btn btn-lg btn-dark btn-rvsp mt-3 me-3" onClick={() => onInviteCardClick()}>
+          <button className="btn btn-lg btn-dark btn-rsvp mt-3 me-3" onClick={() => onInviteCardClick()}>
             <FontAwesomeIcon icon="fas fa-file-export" className="me-1" />
             Invitation Card
           </button>
-          <button className="btn btn-lg btn-dark btn-rvsp mt-3 me-3" onClick={() => onWazeClick()}>
+          <button className="btn btn-lg btn-dark btn-rsvp mt-3 me-3" onClick={() => onWazeClick()}>
             <FontAwesomeIcon icon="fab fa-waze" className="me-1" />
             Waze
           </button>
-          <a href="/wedding/hjxmy_wedding.ics" className="btn btn-lg btn-dark btn-rvsp mt-3">
+          <a href="/wedding/hjxmy_wedding.ics" className="btn btn-lg btn-dark btn-rsvp mt-3">
             <FontAwesomeIcon icon="fas fa-calendar" className="me-1" />
             Calendar
           </a>
         </div>
       </footer>
 
-      <WeddingModal modalClass={modalClass} onCloseClick={onRvspCloseClick} onSaveClick={onRvspSaveClick} showSave={true}>
+      <WeddingModal modalClass={modalClass} onCloseClick={onRsvpCloseClick} onSaveClick={onRsvpSaveClick} showSave={true}>
         <div className="p-3 pt-0 mx-auto">
           <h1>
-            RVSP to #HJxMY Wedding
+            rsvp to #HJxMY Wedding
           </h1>
           <div style={{ 'maxWidth': '368px' }} className="d-flex flex-column mx-auto text-start mt-3">
             <div className="mb-1">
@@ -220,14 +220,14 @@ const Wedding = () => {
             <span className="wedding-invite small">{cardLanguage ? "婚礼地点: TBC" : "Location: TBC"}</span>
           </div>
         </div>
-        <button className="btn btn-dark btn-rvsp" onClick={() => { onCardLanguageToggle() }}>{cardLanguage ? "English" : "中文"}</button>
+        <button className="btn btn-dark btn-rsvp" onClick={() => { onCardLanguageToggle() }}>{cardLanguage ? "English" : "中文"}</button>
         <br />
         <span className="text-danger">- We will contact you shortly.-</span>
         {downloading && <><br /><span className="text-danger">Downloading...</span></>}
       </WeddingModal>
       <WeddingModal modalClass={wazeModalClass} onCloseClick={onWazeCloseClick}>
         <h1>- Location to be confirm -</h1>
-        <h3>Stay tune and RVSP</h3>
+        <h3>Stay tune and RSVP</h3>
         <h4>Will notify once confirmed</h4>
       </WeddingModal>
     </div>
