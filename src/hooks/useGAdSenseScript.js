@@ -8,24 +8,26 @@ const useGAdSenseScript = (id) => {
     script.crossOrigin = 'anonymous';
     document.body.appendChild(script);
 
+    const ins = document.createElement('ins');
+    ins.className = "adsbygoogle";
+    ins.style.display = 'block';
+    ins.attributes['data-ad-client'] = `${id}`;
+    ins.attributes['data-ad-slot'] = '8929561319';
+    ins.attributes['data-ad-format'] = 'auto';
+    ins.attributes['data-full-width-responsive'] = 'true';
+    document.body.appendChild(ins);
+
     const script2 = document.createElement('script');
     script2.innerHTML =
       `
-      <ins class="adsbygoogle"
-      style="display:block"
-      data-ad-client="${id}"
-      data-ad-slot="8929561319"
-      data-ad-format="auto"
-      data-full-width-responsive="true"></ins>
-      <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
     `;
     document.body.appendChild(script2);
 
     return () => {
       document.body.removeChild(script);
       document.body.removeChild(script2);
+      document.body.removeChild(ins);
     }
   }, [id]);
 };
