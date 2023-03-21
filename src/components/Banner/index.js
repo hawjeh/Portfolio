@@ -44,7 +44,7 @@ const Banner = () => {
             </h1>
             <Typewriter
               options={{
-                strings: ['Tech Whiz · Keep Coding · Keep Fighting'],
+                strings: ['Solution Wizard · Tech Whiz'],
                 autoStart: true,
                 loop: true,
                 delay: 75,

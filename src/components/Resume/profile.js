@@ -29,7 +29,11 @@ const ResumeProfile = () => {
           Haw Jeh
         </h1>
         <p>
-          Full Stack Developer
+          Solution Wizard
+        </p>
+        <p>
+          Haw Jeh has unrelenting passion for all things tech.
+          He leaves no stone unturned and has undying love for delivering the best solutions.
         </p>
         <p>
           <a href="mailto:hawjeh.com?subject=Hello%20Nice%20to%20meet%20you">hawjeh@gmail.com</a>

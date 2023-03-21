@@ -14,9 +14,14 @@ const Service = () => {
   const cards = [
     {
       icon: 'fa-solid fa-laptop-code',
-      title: 'Professional Web Consultation',
-      description: 'Consultation for web architecture and design solution'
+      title: 'Solution Consultation',
+      description: 'Consultation for integration and digital solution'
     },
+    {
+      icon: 'fa fa-cloud',
+      title: 'Cloud Architecture & DevOps',
+      description: 'Experienced in cloud architecturing and devops solution'
+    },    
     {
       icon: 'fa-solid fa-code',
       title: 'Professional Web Development',
@@ -37,11 +42,7 @@ const Service = () => {
       title: 'Modular Thinking',
       description: 'Ability to solve problems by smaller paradigm and all'
     },
-    {
-      icon: 'fa-solid fa-certificate',
-      title: 'Web Architecture & DevOps',
-      description: 'Experienced in web architecturing and devops solution'
-    }
+    
   ];
 
   return (

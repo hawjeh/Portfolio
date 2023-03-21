@@ -14,14 +14,14 @@ const Seo = ({ description, keywords, lang, meta, title, image, customIcon }) =>
             keywords
            }
         }
-        icon: file(relativePath: { eq: "icon.png" }) {
+        icon: file(relativePath: { eq: "portrait.png" }) {
           childImageSharp {
             fluid(maxWidth: 80) {
               ...GatsbyImageSharpFluid
             }
           }
         }
-        metaImg: file(relativePath: { eq: "icon.png" }) {
+        metaImg: file(relativePath: { eq: "portrait.png" }) {
           childImageSharp {
             fluid(maxHeight: 630,maxWidth: 1200) {
               ...GatsbyImageSharpFluid
