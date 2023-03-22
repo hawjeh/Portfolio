@@ -19,36 +19,48 @@ Code Snippet (HTML, Javascript, Bootstrap)
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 <body>
-    <div id="imageId" class="d-flex flex-column p-3" style="width: 850px">
-        <img src="./logo.png" class="img-fluid mb-3" alt="logo" width="180px">
+    <div id="imageId" class="d-flex flex-column p-3">
+        <img src="./logo.png" class="img-fluid mb-3" alt="logo" style="max-width: 180px">
         <img src="./model.png" class="img-fluid mb-3" alt="model" width="800px" />
-        <p style="font-size: 0.9rem">&copy; 2023 Centre for Climate Resarch Singapore</p>
-        <p style="font-size: 0.9rem">Downscaled near-surface air temperature from 1955 to 2099 averaged over the
+        <p style="font-size: 0.9rem">&copy; 2023 Centre for Climate Resarch Singapore
+            <br /> Downscaled near-surface air temperature from 1955 to 2099 averaged over the
             SINGV-RCM's SEA domain.
             <br />Sharings indicate the min to max of model spread whereas solid lines are the respective ensemble
             medians.
         </p>
     </div>
     <div class="p-3">
-        <button onclick="download()">Download</button>
+        <button class="btn btn-primary p-1" onclick="download()">Download html2canvas</button>
     </div>
     <script src="./html2canvas.min.js"></script>
     <script>
         function download() {
-            html2canvas(document.querySelector("#imageId"))
+            var html = document.querySelector("#imageId");
+            var cloned = html.cloneNode(true);
+            cloned.id = 'clonedImageId';
+            cloned.style.display = 'none';
+
+            cloned.querySelector('[alt="logo"]').style.maxWidth = '300px';
+            cloned.querySelector('[alt="model"]').style.width = '100%';
+            cloned.querySelector('p').style.fontSize = '1.5rem';
+            document.body.appendChild(cloned);
+
+            html2canvas(document.querySelector("#clonedImageId"))
                 .then(canvas => {
-                    canvas.style.display = 'none'
-                    canvas.crossorigin
-                    document.body.appendChild(canvas)
+                    canvas.style.display = 'block';
+                    canvas.crossorigin;
+                    document.body.appendChild(canvas);
                     return canvas;
                 })
                 .then(canvas => {
                     const image = canvas.toDataURL('image/png')
-                    const a = document.createElement('a')
-                    a.setAttribute('download', 'model.png')
-                    a.setAttribute('href', image)
-                    a.click()
-                    canvas.remove()
+                    const a = document.createElement('a');
+                    a.setAttribute('download', 'model.png');
+                    a.setAttribute('href', image);
+                    a.click();
+                    canvas.remove();
+                    a.remove();
+                    cloned.remove();
                 });
         }
     </script>
@@ -62,6 +74,14 @@ Tools:
 1. Bootstrap
 
 2. Html2Canvas
+
+<br/><br/>
+
+Method:
+
+1. Clone it and make sure it enlarged and max use the browser size before generate image
+
+<br/><br/>
 
 Result: 
 
