@@ -1,5 +1,5 @@
 import React from "react"
-import Shareaholic from '../Shareaholic'
+import AddThis from '../AddThis'
 import Header from "../Header"
 import Layout from "../Layout"
 import Seo from "../Seo"
@@ -25,7 +25,7 @@ const BlogTemplate = ({ location, data }) => {
             <MDXRenderer frontmatter={data.mdx.frontmatter}>{data.mdx.body}</MDXRenderer>
           </MDXProvider>
         </div>
-        <Shareaholic />
+        <AddThis href={location.href} title={title} />
       </div>
     </Layout>
   )

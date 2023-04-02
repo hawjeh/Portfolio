@@ -2,7 +2,6 @@ import React from "react"
 import useFbSdkScript from '../../hooks/useFbSdkScript';
 import useGtagScript from '../../hooks/useGtagScript';
 import useSchemaScript from '../../hooks/useSchemaScript';
-import useShareaholicScript from '../../hooks/useShareaholicScript';
 import useGAdSenseScript from '../../hooks/useGAdSenseScript';
 import Footer from '../Footer'
 import Seo from "../Seo"
@@ -20,7 +19,6 @@ const Layout = ({ title = "", children }) => {
   useGtagScript('G-Q071PHWZBD');
   useFbSdkScript('901448237938064');
   useSchemaScript();
-  useShareaholicScript('ad24785aa672dbe03acda0c112a68e01');
   useGAdSenseScript('ca-pub-1631761609613177');
 
   return (

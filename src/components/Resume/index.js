@@ -1,5 +1,5 @@
 import React from "react"
-import Shareaholic from '../Shareaholic'
+import AddThis from '../AddThis'
 import Certification from '../Certification'
 import Education from '../Education'
 import Experience from '../Experience'
@@ -45,7 +45,7 @@ const Resume = ({ location }) => {
       </div>
       <div className="my-5 text-center">
         <HeaderResume />
-        <Shareaholic center={true} />
+        <AddThis href={location.href} title="Resume" center={true} />
       </div>
     </>
   )
