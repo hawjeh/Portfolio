@@ -1,5 +1,5 @@
 import React from "react"
-import AddThis from '../AddThis'
+import ShareThis from '../ShareThis'
 import Header from "../Header"
 import Layout from "../Layout"
 import Seo from "../Seo"
@@ -12,7 +12,7 @@ const BlogTemplate = ({ location, data }) => {
   const shortcodes = { Link }
 
   const { title, keyword, description, date, image } = data.mdx.frontmatter;
-  
+
   return (
     <Layout title={title}>
       <Seo title={title} description={description} keywords={keyword} image={location.origin + image.childImageSharp.fluid.src} />
@@ -25,7 +25,7 @@ const BlogTemplate = ({ location, data }) => {
             <MDXRenderer frontmatter={data.mdx.frontmatter}>{data.mdx.body}</MDXRenderer>
           </MDXProvider>
         </div>
-        <AddThis href={location.href} title={title} />
+        <ShareThis />
       </div>
     </Layout>
   )
