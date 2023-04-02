@@ -3,6 +3,7 @@ import Banner from "../components/Banner"
 import Header from "../components/Header"
 import Layout from '../components/Layout'
 import Service from '../components/Service'
+import ShareThis from '../components/ShareThis'
 
 const IndexPage = () => {
   return (
@@ -10,6 +11,7 @@ const IndexPage = () => {
       <Banner />
       <Service />
       <Header />
+      <ShareThis center="true" />
     </Layout>
   )
 }
