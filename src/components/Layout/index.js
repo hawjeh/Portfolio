@@ -20,7 +20,7 @@ const Layout = ({ title = "", children }) => {
   useGtagScript('G-Q071PHWZBD');
   useFbSdkScript('901448237938064');
   useSchemaScript();
-  useShareThisScript('642960b66134c500128ce93f');
+  useShareThisScript('642962586134c500128ce940');
   useGAdSenseScript('ca-pub-1631761609613177');
 
   return (
