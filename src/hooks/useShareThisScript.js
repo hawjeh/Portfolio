@@ -5,10 +5,10 @@ const useShareThisScript = (id) => {
     const script = document.createElement('script');
     script.src = `https//platform-api.sharethis.com/js/sharethis.js#property=${id}&product=inline-share-buttons&source=platform`;
     script.async = true;
-    document.body.appendChild(script);
+    document.head.appendChild(script);
 
     return () => {
-      document.body.removeChild(script);
+      document.head.removeChild(script);
     }
   }, [id]);
 };
