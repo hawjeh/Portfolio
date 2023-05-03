@@ -1,0 +1,105 @@
+---
+category: "blog"
+image: "./sitefinity-logo.jpg"
+slug: "sitefinity-custom-reset-password"
+title: "Sitefinity Reset Password Widget"
+description: "Sitefinity – My experience of creating custom reset password screen"
+keyword: ".NET, CMS, Sitefinity"
+date: "2022-11-20"
+published: true
+---
+
+I built a custom reset password screen for Sitefinity!
+
+Tested and running in V13.
+
+<br/>
+
+## Problems / Issues
+
+Sitefinity does not come with a reset password screen.
+
+Hence we have to build a custom widget + content type to support it.
+
+All codes can be found in my snippets.
+
+<br/>
+
+## My Solution
+
+1. Modify and place the [login.html](https://gist.github.com/hawjeh/c8daf9367fa84c4777cca341d6750a42#file-content_pages_login-html) to Sitefinity folder (Content/Pages/login.html)
+
+2. Create a custom module to hold request id and user id.
+This is to hold the temporary request id and user id for password reset verification.
+![screen1](./screen1.png)
+<br/>
+
+The content type structure
+![screen2](./screen2.png)
+<br/>
+
+Hide the content page from showing in navigation. (at backendpages)
+![screen3](./screen3.png)
+<br/>
+
+3. Configure SMTP Profile.
+![screen4](./screen4.png)
+<br/>
+
+4. Configure advanced setting
+
+Configure Security/Membership Providers/Default/Parameters/<b>enablePasswordRetrieval</b> to <b>true</b>
+![screen5](./screen5.png)
+
+Configure Security/Membership Providers/Default/Parameters/<b>enablePasswordReset</b> to <b>true</b>
+![screen6](./screen6.png)
+<br/>
+
+5. Add [Custom Code](https://gist.github.com/hawjeh/c8daf9367fa84c4777cca341d6750a42#file-global-asax-cs) to Global.asax.cs
+
+6. Setup a Forgot Password Page in Pages
+![screen7](./screen7.png)
+<br/>
+
+Select a default MVC Page
+![screen8](./screen8.png)
+<br/>
+
+Install the ForgotPassword widget
+![screen9](./screen9.png)
+<br/>
+
+7. Reset password screen:
+![screen10](./screen10.png)
+<br/>
+
+![screen11](./screen11.png)
+<br/>
+
+Then receive password reset link in email
+
+![screen12](./screen12.png)
+<br/>
+
+It will route to the change password screen
+
+![screen13](./screen13.png)
+<br/>
+
+![screen14](./screen14.png)
+<br/>
+
+Then back to login screen to login and test the login.
+
+![screen15](./screen15.png)
+<br/>
+
+## References
+
+- https://community.progress.com/s/article/how-to-add-reset-password-link-to-backend-login-page 
+- https://community.progress.com/s/article/this-operation-requires-iis-integrated-pipeline-mode-error-when-using-antiforgerytoken  
+
+
+## My Code Snippets
+
+- https://gist.github.com/hawjeh/c8daf9367fa84c4777cca341d6750a42
