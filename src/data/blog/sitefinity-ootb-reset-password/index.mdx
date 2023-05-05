@@ -1,0 +1,159 @@
+---
+category: "blog"
+image: "./sitefinity-logo.jpg"
+slug: "sitefinity-ootb-reset-password"
+title: "Sitefinity OOTB Reset Password"
+description: "Sitefinity – My experience of configuring reset password screen"
+keyword: ".NET, CMS, Sitefinity"
+date: "2022-12-20"
+published: true
+---
+
+I configure the OOTB reset password screen for Sitefinity!
+
+Tested and running in v13.3 and V14.4.
+
+<br/>
+
+## Problems / Issues
+
+[Previously](https://www.hawjeh.com/blog/sitefinity-custom-reset-password) we have made a mistake about Sitefinity reset password screen.
+
+Today, the article is to showcase the step to configure the reset password screens.
+
+It is slightly different between v14+ and v13 or below when setting up the screen.
+
+Also, the workflow is slightly different if you want to reset password for public user and backend dashboard admin user.
+
+In this article, we will focus on the backend dashboard admin user.
+
+<br/>
+
+## Pre-requisite for the Solution
+
+1. Set Security/Membership Provders/Default/Parameters/enablePasswordReset to true
+(Please restart core Sitefinity after configuration updated)
+![screen0](./screen0.png)
+<br/>
+
+2. Setup SMTP profile
+<br/>
+
+## Solution for v14+ with net core renderer
+
+1. Create a page for reset password
+![screen1](./screen1.png)
+<br/>
+
+2. You can either a) Use the OOTB template
+
+The login form
+![screen2](./screen2.png)
+
+The reset password form
+![screen3](./screen3.png)
+
+The change password form
+![screen4](./screen4.png)
+<br/>
+
+3. or b) customize the template when setting up the page.
+
+Get the Default template from 
+- [SitefinityLoginForm](https://github.com/Sitefinity/sitefinity-aspnetcore-mvc-widgets/blob/master/Progress.Sitefinity.AspNetCore.Widgets/Views/Shared/Components/SitefinityLoginForm/Default.cshtml)
+- [SitefinityResetPassword](https://github.com/Sitefinity/sitefinity-aspnetcore-mvc-widgets/blob/master/Progress.Sitefinity.AspNetCore.Widgets/Views/Shared/Components/SitefinityResetPassword/Default.cshtml)
+- [SitefinityChangePassword](https://github.com/Sitefinity/sitefinity-aspnetcore-mvc-widgets/blob/master/Progress.Sitefinity.AspNetCore.Widgets/Views/Shared/Components/SitefinityChangePassword/Default.cshtml)
+
+<br/>
+
+4. Clone to the project, and name it as Sparks*
+![screen5](./screen5.png)
+<br/>
+
+5. Deploy the widget, and select the override template
+![screen6](./screen6.png)
+<br/>
+
+6. Go to the backendpages /Sitefinity/Administration/BackendPages/Pages and Edit the login page under authentication
+![screen7](./screen7.png)
+<br/>
+
+7. Update the <b>ChangePasswordPageUrl</b> and set <b>ShowLostPasswordLink</b> as True
+The ChangePasswordPageUrl follow the reset password page that you have created in step 1.
+![screen8](./screen8.png)
+![screen9](./screen9.png)
+<br/>
+
+8. Visit /Sitefinity page and in the Login page, it will show <b>Forgot your password?</b> link.
+![screen10](./screen10.png)
+<br/>
+
+9. Click and follow the link to the the Forgot password screen, then submit
+![screen11](./screen11.png)
+![screen12](./screen12.png)
+<br/>
+
+10. You will receive an email.
+![screen13](./screen13.png)
+<br/>
+
+11. Click and follow the link to reset password. Key in new password and see the password changed successful screen!
+![screen14](./screen14.png)
+![screen15](./screen15.png)
+<br/>
+
+12. For the customization of email template, can refer to [here](https://www.progress.com/documentation/sitefinity-cms/tutorial-customize-the-email-notification-for-password-change#customize-the-email-template-body) too
+
+<br/>
+<br/>
+
+## Solution for v13.3 with Bootstrap 4 or 5 
+
+1. Create 1 page for Reset Password, choose Boostrap 4 or 5 page template.
+Install <b>Login Form</b> widget and edit it.
+Mark a tick for <b>Allow users to reset password</b>
+![screen1-1](./screen1-1.png)
+<br/>
+
+2. The published page and get the forget password url, e.g. `http://<domain>/auth/resetpassword`
+(Be-aware to use the correct url, its a multi-views widget, hence, the reset password screen may require another /resetpassword)
+
+3. Then go to the backendpages /Sitefinity/Administration/BackendPages/Pages,
+Edit the login page under authentication
+![screen1-2](./screen7.png)
+<br/>
+
+4. Update the <b>ChangePasswordPageUrl</b> and set <b>ShowLostPasswordLink</b> as True
+The ChangePasswordPageUrl follow the reset password page that you have created in step 1.
+![screen1-3](./screen8.png)
+![screen1-4](./screen9.png)
+<br/>
+
+5. Publish the page, and go to /Sitefinity/Login and in the Login page, it will show <b>Forgot your password?</b> link.
+![screen1-5](./screen10.png)
+<br/>
+
+6. Click and follow the link to the the Forgot password screen, then submit
+![screen1-6](./screen11.png)
+![screen1-7](./screen12.png)
+<br/>
+
+7. You will receive an email.
+![screen1-8](./screen13.png)
+<br/>
+
+8. Click and follow the link to reset password. Key in new password and see the password changed successful screen!
+![screen1-9](./screen14.png)
+![screen1-10](./screen1-10.png)
+<br/>
+
+9. You may also want to customize the Templates to correct URL.
+![screen1-11](./screen1-11.png)
+
+
+<br/>
+
+## References
+
+- https://www.progress.com/documentation/sitefinity-cms/reset-password-widget
+- https://github.com/Sitefinity/sitefinity-aspnetcore-mvc-widgets
